@@ -1,0 +1,7 @@
+{
+  "imports": {    
+    "react-i18next": "/openmrs/frontend/react-i18next@11.18.6/dist/umd/react-i18next.js",
+    "i18next": "/openmrs/frontend/i18next@19.9.2/dist/umd/i18next.js",
+    "react-router-dom": "/openmrs/frontend/react-router-dom@5.3.4/umd/react-router-dom.js"
+  }
+}
