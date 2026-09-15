@@ -1,0 +1,52 @@
+{
+  "title": "All Requested Appointment",
+  "layout": {
+    "columns": 10
+  },
+  "breadcrumbs": [
+    {
+      "name": "My Dashboard",
+      "href": "javascript:history.back()"
+    },
+    {
+      "name": "My To Do's"
+    }
+  ],
+  "contents": [
+    {
+      "size": { "rows": 2, "columns": 6 },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Appointment"
+      },
+      "properties": {
+        "title": "To Do Appointments to be confirmed",
+        "source": {
+          "url": "/ws/rest/v1/appointments",
+          "fetchType": "self",
+
+          "fromTimeDelayInMinutes": "600",
+          "showFutureAppointments": true,
+          "showDate": true,
+          "providerStatusFilterType": "self",
+          "filters": [
+            {
+              "field": "status",
+              "values": ["Requested", "Scheduled"]
+            }
+          ]
+        },
+        "actions": [
+          {
+            "name": "Accept",
+            "when": []
+          },
+          {
+            "name": "Edit",
+            "when": []
+          }
+        ]
+      }
+    }
+  ]
+}
