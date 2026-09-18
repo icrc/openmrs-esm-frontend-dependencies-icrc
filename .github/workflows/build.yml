@@ -1,14 +1,11 @@
 name: Build CI
 
-# Manual only while the npm publishing setup is being stabilized. Restore the
-# push and pull_request triggers below once it is stable, so that pull requests
-# get build feedback again.
 on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
-  # push:
-  #   branches: [main]
-  # pull_request:
-  #   branches: [main]
 
 permissions:
   contents: read
