@@ -7,7 +7,7 @@
     "build": "packmap -p packmap-package.json -o openmrs/frontend --override-map ./overriding-import-map.json && cp -r ./statics/* ./openmrs/frontend/",
     "build-dev": "packmap -p packmap-package.json -o openmrs/frontend --override-map ./overriding-import-map-local.json && cp -r ./statics/* ./openmrs/frontend/",
     "deploy-docker": "npm run build-dev && sh ./scripts/deploy-to-docker.sh",
-    "prepublishOnly": "npm install && npm run build"
+    "prepublishOnly": "npm run build"
   },
   "publishConfig": {
     "access": "public",
@@ -22,14 +22,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/icrc/esm-frontend-dependencies.git"
+    "url": "git+https://github.com/icrc/openmrs-esm-frontend-dependencies-icrc.git"
   },
-  "homepage": "https://github.com/icrc/esm-frontend-dependencies",
+  "homepage": "https://github.com/icrc/openmrs-esm-frontend-dependencies-icrc#readme",
   "bugs": {
-    "url": "https://github.com/icrc/esm-frontend-dependencies/issues"
+    "url": "https://github.com/icrc/openmrs-esm-frontend-dependencies-icrc/issues"
   },
   "author": "",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "directories": {
     "lib": "openmrs"
   },

@@ -7,7 +7,7 @@ This module is using `packmap` for bundling dependencies & creating `import-map.
 ## Prerequesties
 
 1. install NodeJS
-2. Access to ICRC Nexus instance: https://tfs.ext.icrc.org/ICRCCollection/DevOps%20Portal/_wiki/wikis/DevOps%20Wiki/14980/How-to-connect-to-Nexus-with-npm-and-yarn
+2. ICRC staff: see the page "How to connect to Nexus with npm and yarn" in the internal DevOps wiki. This is only needed while any `@icrcpriv` dependency remains.
 
 ## How to setup?
 
