@@ -1,0 +1,38 @@
+name: Build CI
+
+# Manual only while the npm publishing setup is being stabilized. Restore the
+# push and pull_request triggers below once it is stable, so that pull requests
+# get build feedback again.
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+  # pull_request:
+  #   branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      # --legacy-peer-deps is required: the pinned @openmrs and react versions
+      # in this bundle do not satisfy each other's peer ranges.
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      # There is no lint, type check or test script in this repository. It only
+      # bundles dependencies into an import map, so building is the check.
+      - name: Build
+        run: npm run build

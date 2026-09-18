@@ -1,0 +1,16 @@
+{
+  "imports": {    
+    "react": "https://cdnjs.cloudflare.com/ajax/libs/react/16.13.1/umd/react.development.js",
+    "react-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.13.1/umd/react-dom.development.js",
+    "react-i18next": "/openmrs/frontend/react-i18next@11.15.1/dist/umd/react-i18next.js",
+    "i18next": "/openmrs/frontend/i18next@19.9.2/dist/umd/i18next.js",
+    "react-router-dom": "/openmrs/frontend/react-router-dom@5.3.0//umd/react-router-dom.js",
+    
+    "@openmrs/esm-patient-chart-app": "https://localhost:8081/openmrs-esm-patient-chart.js",
+    "@openmrs/esm-refapp-navigation-app": "https://localhost:8082/openmrs-esm-refapp-navigation.js",
+    "@openmrs/esm-refapp-styleguide-app": "https://localhost:8083/openmrs-esm-refapp-styleguide.js",    
+    "@openmrs/esm-user-dashboard-app": "https://localhost:8084/openmrs-esm-user-dashboard.js",
+    "@openmrs/esm-patient-chart-widgets": "https://localhost:8085/openmrs-esm-patient-chart-widgets.js",
+    "@icrc/esm-icrc-overrides-app": "https://localhost:8086/openmrs-esm-icrc-overrides.js"
+  }
+}
