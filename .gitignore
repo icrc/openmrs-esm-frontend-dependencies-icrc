@@ -5,3 +5,6 @@ openmrs/
 .npmrc
 .idea
 /launch.ps1
+
+# internal Azure DevOps pipeline, superseded by .github/workflows
+azure-pipelines.yml
