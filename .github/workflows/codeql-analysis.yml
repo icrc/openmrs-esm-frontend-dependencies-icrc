@@ -11,19 +11,14 @@
 #
 name: "CodeQL"
 
-# Manual only while the npm publishing setup is being stabilized. Restore the
-# triggers below afterwards: the weekly schedule is what keeps code scanning
-# results from going stale. GitHub also marks a workflow left without triggers
-# as disabled, so it needs re-enabling from the Actions tab.
 on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "17 1 * * 0"
   workflow_dispatch:
-  # push:
-  #   branches: [ "main" ]
-  # pull_request:
-  #   # The branches below must be a subset of the branches above
-  #   branches: [ "main" ]
-  # schedule:
-  #   - cron: '17 1 * * 0'
 
 jobs:
   analyze:

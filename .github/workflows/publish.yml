@@ -7,10 +7,13 @@ name: Publish
 #   release checked   -> publishes latest, tags the commit, opens the bump PR
 # Restore the push trigger below once publishing is validated.
 #
-# No --provenance. This repository is private, and npm only attests packages
-# published from a public source repository, failing at the registry with a 422
-# and publishing nothing. If it is ever made public, add --provenance back to
-# both publish steps.
+# No --provenance, and adding it would achieve nothing. Trusted publishing
+# generates a provenance attestation on its own, so long as the source repository
+# is public, which this one now is. Version 1.0.10 was published without the flag
+# and carries an attestation.
+#
+# Provenance cannot be generated from a private repository at all, so making this
+# repository private again would silently drop attestation from future releases.
 on:
   workflow_dispatch:
     inputs:
