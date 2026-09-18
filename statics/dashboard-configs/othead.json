@@ -11,7 +11,7 @@
       },
 
       "library": {
-        "module": "@icrcpriv/diop-esm-icrc-user-dashboard-widgets",
+        "module": "@icrc/esm-icrc-user-dashboard-widgets",
         "name": "InterventionPlan"
       },
       "properties": {

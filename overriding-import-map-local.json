@@ -11,6 +11,6 @@
     "@openmrs/esm-refapp-styleguide-app": "https://localhost:8083/openmrs-esm-refapp-styleguide.js",    
     "@openmrs/esm-user-dashboard-app": "https://localhost:8084/openmrs-esm-user-dashboard.js",
     "@openmrs/esm-patient-chart-widgets": "https://localhost:8085/openmrs-esm-patient-chart-widgets.js",
-    "@openmrs/esm-icrc-overrides-app": "https://localhost:8086/openmrs-esm-icrc-overrides.js"
+    "@icrc/esm-icrc-overrides-app": "https://localhost:8086/openmrs-esm-icrc-overrides.js"
   }
 }

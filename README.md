@@ -4,10 +4,11 @@ This module takes care of bundling all the required packages for dashboard and c
 
 This module is using `packmap` for bundling dependencies & creating `import-map.json` file. For more information refer [packmap documentation](https://github.com/openmrs/packmap/blob/master/README.md)
 
-## Prerequesties
+## Prerequisites
 
-1. install NodeJS
-2. ICRC staff: see the page "How to connect to Nexus with npm and yarn" in the internal DevOps wiki. This is only needed while any `@icrcpriv` dependency remains.
+1. Install NodeJS.
+
+Access to the internal Nexus instance is no longer required. Every dependency now resolves from the public npm registry.
 
 ## How to setup?
 
