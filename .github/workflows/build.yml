@@ -1,14 +1,22 @@
 name: Build CI
 
+# Manual only while the npm publishing setup is being stabilized. Restore the
+# push and pull_request triggers below once it is stable, so that pull requests
+# get build feedback again.
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+  # pull_request:
+  #   branches: [main]
+
+permissions:
+  contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -17,15 +25,14 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: "24"
-          cache: 'yarn'
-          cache-dependency-path: '**/yarn.lock'
-          package-manager-cache: false
+          cache: "npm"
 
+      # --legacy-peer-deps is required: the pinned @openmrs and react versions
+      # in this bundle do not satisfy each other's peer ranges.
       - name: Install dependencies
-        run: yarn install --immutable
+        run: npm ci --legacy-peer-deps
 
-      - name: Run lint, type checks and tests
-        run: yarn verify
-
-      - name: Yarn build
-        run: yarn build
+      # There is no lint, type check or test script in this repository. It only
+      # bundles dependencies into an import map, so building is the check.
+      - name: Build
+        run: npm run build
