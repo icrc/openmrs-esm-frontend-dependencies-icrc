@@ -1,0 +1,22 @@
+{
+  "title": "OT Dashboard",
+  "layout": {
+    "columns": 1
+  },
+  "contents": [
+    {
+      "size": {
+        "rows": 1,
+        "columns": 1
+      },
+
+      "library": {
+        "module": "@icrc/esm-icrc-user-dashboard-widgets",
+        "name": "InterventionPlan"
+      },
+      "properties": {
+        "title": "Intervention Plan"
+      }
+    }
+  ]
+}

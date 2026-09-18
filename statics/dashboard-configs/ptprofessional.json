@@ -1,0 +1,122 @@
+{
+  "title": "PT Professional Dashboard",
+  "layout": {
+    "columns": 2
+  },
+  "contents": [
+    {
+      "size": { "rows": 2, "columns": 1 },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Appointment"
+      },
+      "properties": {
+        "title": "Today's Appointments",
+        "source": {
+          "url": "/ws/rest/v1/appointments",
+          "fetchType": "self",
+          "fromTimeDelayInMinutes": "60",
+          "filters": [
+            {
+              "field": "status",
+              "values": ["Scheduled", "CheckedIn"]
+            }
+          ]
+        },
+        "actions": [
+          {
+            "name": "Done",
+            "when": [
+              {
+                "field": "status",
+                "values": ["Scheduled", "CheckedIn"]
+              }
+            ]
+          }
+        ],
+        "viewAll": "../../appointments/index.html#/home/manage/appointments/calendar?provider=%provider%",
+        "viewAllWindow": "new"
+      }
+    },
+    {
+      "size": { "rows": 1, "columns": 1 },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Appointment"
+      },
+      "properties": {
+        "title": "To Do Appointments to be confirmed",
+        "source": {
+          "url": "/ws/rest/v1/appointments",
+          "fetchType": "self",
+
+          "fromTimeDelayInMinutes": "600",
+          "showFutureAppointments": true,
+          "showDate": true,
+          "providerStatusFilterType": "self",
+          "filters": [
+            {
+              "field": "status",
+              "values": ["Requested", "Scheduled"]
+            }
+          ]
+        },
+        "actions": [
+          {
+            "name": "Edit",
+            "when": []
+          },
+          {
+            "name": "Accept",
+            "when": []
+          }
+        ],
+        "viewAll": "../spa/dashboard/allappointments"
+      }
+    },
+    {
+      "size": { "rows": 1, "columns": 1 },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Charts"
+      },
+      "properties": {
+        "title": "Reports",
+        "charts": [
+          {
+            "url": "/ws/rest/v1/reportingrest/reportdata/d3eb2a3e-55b3-4774-840d-f52c894b3833",
+            "locationProperty": "locationId",
+            "name": "Number of HSU Registered Per Month",
+            "sourcePath": "dataSets.0.rows",
+            "xAxis": "Year - month",
+            "yAxis": [
+              {
+                "field": "Registrations",
+                "color": "#4286f4"
+              }
+            ],
+            "type": "LineChart"
+          },
+          {
+            "url": "/ws/rest/v1/reportingrest/reportdata/30d10e22-3846-42f6-be94-f06fc6a62837",
+            "locationProperty": "locationId",
+            "name": "Number of Session Individual / Group Per Month",
+            "sourcePath": "dataSets.0.rows",
+            "xAxis": "Year - month",
+            "yAxis": [
+              {
+                "field": "Individual",
+                "color": "#4286f4"
+              },
+              {
+                "field": "Group",
+                "color": "#dc3a12"
+              }
+            ],
+            "type": "LineChart"
+          }
+        ]
+      }
+    }
+  ]
+}

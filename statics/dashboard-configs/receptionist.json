@@ -1,0 +1,101 @@
+{
+  "title": "Receptionist Dashboard",
+  "layout": {
+    "columns": 2
+  },
+  "contents": [
+    {
+      "size": { "rows": 2, "columns": 1 },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Appointment"
+      },
+      "properties": {
+        "title": "Today's Appointments",
+        "source": {
+          "url": "/ws/rest/v1/appointments",
+          "fetchType": "all",
+          "fromTimeDelayInMinutes": "60",
+          "filters": [
+            {
+              "field": "status",
+              "values": ["Scheduled", "CheckedIn"]
+            }
+          ]
+        },
+        "actions": [
+          {
+            "name": "CheckIn",
+            "when": [
+              {
+                "field": "status",
+                "values": ["Scheduled"]
+              }
+            ]
+          }
+        ],
+        "viewAll": "../../appointments/index.html#/home/manage/appointments/calendar",
+        "viewAllWindow": "new"
+      }
+    },
+    {
+      "size": {
+        "rows": 1,
+        "columns": 1
+      },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Todo"
+      },
+      "properties": {
+        "title": "My To Do's",
+        "source": {
+          "url": "/ws/rest/v1/assignedaction",
+          "limit": 3,
+          "showDone": false
+        },
+        "viewAll": "dashboard/receptionistTodoViewAll"
+      }
+    },
+    {
+      "size": { "rows": 1, "columns": 1 },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Charts"
+      },
+      "properties": {
+        "title": "Reports",
+        "charts": [
+          {
+            "url": "/ws/rest/v1/reportingrest/reportdata/d3eb2a3e-55b3-4774-840d-f52c894b3833",
+            "locationProperty": "locationId",
+            "name": "Number of HSU Registered Per Month",
+            "sourcePath": "dataSets.0.rows",
+            "xAxis": "Year - month",
+            "yAxis": [
+              {
+                "field": "Registrations",
+                "color": "#4286f4"
+              }
+            ],
+            "type": "LineChart"
+          },
+          {
+            "url": "/ws/rest/v1/reportingrest/reportdata/84206261-acbc-4298-868c-0a6f02c47939",
+            "locationProperty": "locationId",
+            "name": "Number of Missed Appointments Per Month",
+            "sourcePath": "dataSets.0.rows",
+            "xAxis": "Year - month",
+            "yAxis": [
+              {
+                "field": "Appointments",
+                "color": "#4286f4"
+              }
+            ],
+            "type": "LineChart"
+          }
+        ]
+      }
+    }
+  ]
+}

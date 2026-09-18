@@ -1,0 +1,34 @@
+{
+  "title": "Receptionist Dashboard",
+  "breadcrumbs": [
+    {
+      "name": "My Dashboard",
+      "href": "dashboard/dashboard/receptionist"
+    },
+    {
+      "name": "My To Do's"
+    }
+  ],
+  "layout": {
+    "columns": 10
+  },
+  "contents": [
+    {
+      "size": {
+        "rows": 2,
+        "columns": 6
+      },
+      "library": {
+        "module": "@openmrs/esm-user-dashboard-widgets",
+        "name": "Todo"
+      },
+      "properties": {
+        "title": "My To Do's",
+        "source": {
+          "url": "/ws/rest/v1/assignedaction",
+          "showDone": false
+        }
+      }
+    }
+  ]
+}
