@@ -45,7 +45,7 @@
     "@openmrs/esm-refapp-styleguide-app": "1.0.1",
     "@openmrs/esm-styleguide": "~1.3.0",
     "@openmrs/esm-user-dashboard-app": "1.0.1",
-    "@openmrs/esm-user-dashboard-widgets": "1.0.3-pre.14",
+    "@openmrs/esm-user-dashboard-widgets": "1.0.3-pre.17",
     "@icrc/esm-icrc-user-dashboard-widgets": "4.0.0",
     "import-map-overrides": "1.9.1",
     "packmap": "~1.3.0",
